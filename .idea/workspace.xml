@@ -4,7 +4,27 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ec2f68b3-5b89-4da4-9629-9ef36475d3ed" name="Changes" comment="" />
+    <list default="true" id="ec2f68b3-5b89-4da4-9629-9ef36475d3ed" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.db" beforeDir="false" afterPath="$PROJECT_DIR$/db.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/App.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/App.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/System.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Cusys.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/commands/Add.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/commands/Add.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/commands/Edit.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/commands/Edit.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/commands/Exit.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/commands/Exit.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/commands/Fetch.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/commands/Fetch.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/commands/Hash.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/commands/Hash.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/commands/Help.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/commands/Help.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/commands/Login.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/commands/Login.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/commands/Logout.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/commands/Logout.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/commands/Man.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/commands/Man.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/structs/Command.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/structs/Command.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/structs/Info.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/structs/Info.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/structs/User.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/structs/User.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/utils/Hash.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/utils/Hash.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/utils/Say.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/utils/Say.kt" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -18,10 +38,10 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 8
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 8
+}</component>
   <component name="ProjectId" id="2oT2LkTKIclyg1jLNwpsWMDurm4" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -29,12 +49,26 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Gradle.Build cusys.executor": "Run",
+    "Kotlin.MainKt.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
+      <recent name="structs" />
+    </key>
+  </component>
   <component name="RunManager">
+    <configuration name="MainKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="MainKt" />
+      <module name="cusys.main" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="JetRunConfigurationType">
       <method v="2">
         <option name="Make" enabled="true" />
@@ -46,6 +80,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Kotlin.MainKt" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -57,5 +96,16 @@
       <updated>1730879191338</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

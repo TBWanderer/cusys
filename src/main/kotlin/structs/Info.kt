@@ -1,11 +1,11 @@
 package structs
 
-import System
+import Cusys
 
 data class Info(
-    val system: System,
-    var currentUser: User?,
-    val currentLevel: Int,
+    val system: Cusys,
+    var currentUser: User? = null,
+    val currentLevel: Int = -1,
     val inputArgs: List<String>,
     val command: Command?
 )

@@ -6,8 +6,9 @@ import structs.Command
 class Help(
     name: String = "help",
     description: String = "Show available commands",
-    level: Int = -1
-) : Command(name, description, level) {
+    level: Int = -1,
+    manual: String = "help -> list of commands",
+) : Command(name, description, level, manual) {
     override fun run(info: Info) : Info {
         for (commandObject in info.system.commands) {
             if (commandObject.level <= info.currentLevel) {

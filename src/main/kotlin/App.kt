@@ -6,15 +6,16 @@ import structs.User
 
 class App {
     fun run() {
-        var system = System(Config().dbUrl)
+        var system = Cusys(Config().dbUrl)
         val get = Get()
 
         var currentUser: User? = null
 
-        system.addCommand(Help(), Hash(), Fetch(), Login(), Logout(), Add(), Exit())
+        system.addCommand(Help(), Man(), Hash(), Fetch(), Login(), Logout(), Add(), Exit())
 
-        val admin = User("General", "Admin", -1, "admin@system.com", "39278de48feed8cbb96fbd597ed7dfab714d839c62922df79f55292941143c71", Config().adminLevel)
-        system.addUser(admin)
+        val admin = User("admin", "admin@system.com", "39278de48feed8cbb96fbd597ed7dfab714d839c62922df79f55292941143c71", Config().adminLevel)
+
+        if (!admin.exists(system)) { system.addUser(admin) }
 
         while (true) {
             var prompt = "> "

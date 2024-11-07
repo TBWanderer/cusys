@@ -2,14 +2,16 @@ package commands
 
 import structs.Command
 import structs.Info
+import utils.Hash
 import java.security.MessageDigest
 import java.security.NoSuchAlgorithmException
 
 class Hash(
     name: String = "hash",
     description: String = "Hash functions to use",
-    level: Int = -1
-) : Command(name, description, level) {
+    level: Int = -1,
+    manual: String = "1. hash <data> -> <hashed-by-sha256-data>\n2. hash <algorithm> <data> -> <hashed-by-sha256-data>",
+) : Command(name, description, level, manual) {
     override fun run(info: Info): Info {
         if (info.inputArgs.size == 1) {
             println("Too few arguments")
@@ -28,15 +30,8 @@ class Hash(
             println("Using hashing algorithm $algorithm")
             println("Hashing data: '$data'")
 
-            try {
-                val digest = MessageDigest.getInstance(algorithm)
-                val hashedBytes = digest.digest(data.toByteArray())
-                val hashString = hashedBytes.joinToString("") { String.format("%02x", it) }
-                println("Hashed string: $hashString")
-            } catch (e: NoSuchAlgorithmException) {
-                println("Algorithm $algorithm not found!")
-            }
-
+            val hash = Hash().string(data, algorithm)
+            if (hash != null ) { println("Hashed string: $hash") }
         }
         return info
     }

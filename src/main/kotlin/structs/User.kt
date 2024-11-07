@@ -1,11 +1,10 @@
 package structs
 
+import Cusys
 import java.security.MessageDigest
 
 data class User(
-    var firstName: String,
-    var lastName: String,
-    var age: Int,
+    var nickname: String,
     var email: String,
     val hashedPassword: String,
     val level: Int,
@@ -13,6 +12,10 @@ data class User(
 ) {
     fun checkPassword(password: String): Boolean {
         return hashedPassword == hashPassword(hashPassword(password))
+    }
+
+    fun exists(system: Cusys) : Boolean {
+        return system.getUserID(nickname) != null
     }
 
     private fun hashPassword(password: String): String {

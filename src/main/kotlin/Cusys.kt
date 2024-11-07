@@ -6,7 +6,7 @@ import java.sql.DriverManager
 import java.sql.PreparedStatement
 import java.sql.ResultSet
 
-class System(private val dbUrl: String) {
+class Cusys(private val dbUrl: String) {
     private val connection: Connection = DriverManager.getConnection(dbUrl)
     val commands = mutableListOf<Command>()
 
@@ -28,26 +28,25 @@ class System(private val dbUrl: String) {
 
     fun addUser(user: User) {
         val statement: PreparedStatement = connection.prepareStatement(
-            "INSERT INTO users (first_name, last_name, email, password, level) VALUES (?, ?, ?, ?, ?)",
+            "INSERT INTO users (nickname, email, password, level) VALUES (?, ?, ?, ?)",
             PreparedStatement.RETURN_GENERATED_KEYS
         )
-        statement.setString(1, user.firstName)
-        statement.setString(2, user.lastName)
-        statement.setString(3, user.email)
-        statement.setString(4, user.hashedPassword)
-        statement.setInt(5, user.level)
+        statement.setString(1, user.nickname)
+        statement.setString(2, user.email)
+        statement.setString(3, user.hashedPassword)
+        statement.setInt(4, user.level)
 
         try {
             statement.executeUpdate()
-            println("User ${user.firstName} ${user.lastName} added to the System")
+            println("User ${user.nickname} added to the System")
         } catch (e: Exception) {
             println("Error adding user: ${e.message}")
         }
     }
 
-    fun getUserID(email: String): Int? {
-        val statement: PreparedStatement = connection.prepareStatement("SELECT id FROM users WHERE email = ?")
-        statement.setString(1, email)
+    fun getUserID(nickname: String): Int? {
+        val statement: PreparedStatement = connection.prepareStatement("SELECT id FROM users WHERE nickname = ?")
+        statement.setString(1, nickname)
         val resultSet: ResultSet = statement.executeQuery()
 
         return if (resultSet.next()) {
@@ -58,15 +57,13 @@ class System(private val dbUrl: String) {
     }
 
     fun getUserByID(userID: Int) : User? {
-        val statement: PreparedStatement = connection.prepareStatement("SELECT (first_name, last_name, email, password, level, ) FROM users WHERE id = ?")
+        val statement: PreparedStatement = connection.prepareStatement("SELECT nickname, email, password, level, is_authorized FROM users WHERE id = ?")
         statement.setInt(1, userID)
         val resultSet: ResultSet = statement.executeQuery()
 
         return if (resultSet.next()) {
             User(
-                firstName = resultSet.getString("first_name"),
-                lastName = resultSet.getString("last_name"),
-                age = resultSet.getInt("age"),
+                nickname = resultSet.getString("nickname"),
                 email = resultSet.getString("email"),
                 hashedPassword = resultSet.getString("password"),
                 level = resultSet.getInt("level"),
@@ -77,8 +74,8 @@ class System(private val dbUrl: String) {
         }
     }
 
-    fun logInUser(email: String, password: String): User? {
-        val userID = getUserID(email)
+    fun logInUser(nickname: String, password: String): User? {
+        val userID = getUserID(nickname)
         return if (userID != null) {
             val user = getUserByID(userID)!!
             if (!user.isAuthorized && user.checkPassword(password)) {
@@ -89,7 +86,7 @@ class System(private val dbUrl: String) {
                 statement.setInt(2, userID)
                 statement.executeUpdate()
 
-                println("User ${user.firstName} ${user.lastName} authorized")
+                println("User ${user.nickname} authorized")
                 user.isAuthorized = true
                 user
             } else {
@@ -108,13 +105,13 @@ class System(private val dbUrl: String) {
                 "UPDATE users SET is_authorized = ? WHERE id = ?"
             )
             statement.setBoolean(1, false)
-            statement.setInt(2, getUserID(user.email)!!)
+            statement.setInt(2, getUserID(user.nickname)!!)
             statement.executeUpdate()
 
             user.isAuthorized = false
-            println("User ${user.firstName} ${user.lastName} logged out")
+            println("User ${user.nickname} logged out")
         } else {
-            println("User ${user.firstName} ${user.lastName} not authorized")
+            println("User ${user.nickname} not authorized")
         }
     }
 
